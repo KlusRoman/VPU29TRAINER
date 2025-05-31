@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="uk" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Професійний тренажер ВПУ29</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Сплеш-екран з 3D кубом -->
+        <div id="splash" class="splash-screen">
+            <div class="cube-container">
+                <div class="cube">
+                    <div class="front">ВПУ</div>
+                    <div class="back">29</div>
+                    <div class="right">PRO</div>
+                    <div class="left">TRAIN</div>
+                    <div class="top"><i class="fas fa-graduation-cap"></i></div>
+                    <div class="bottom">2024</div>
+                </div>
+            </div>
+            <div class="loading-bar">
+                <div class="progress"></div>
+            </div>
+            <p class="loading-text">Завантаження навчальної системи...</p>
+        </div>
+<template id="test-page">
+    <section class="test-section">
+        <div class="test-header">
+            <div class="test-timer">
+                <i class="fas fa-clock"></i>
+                <span id="time-left">20:00</span>
+            </div>
+            <div class="test-progress">
+                Питання <span id="current-question">1</span> з <span id="total-questions">10</span>
+            </div>
+        </div>
+        
+        <div class="question-container">
+            <div class="question-text" id="question-text"></div>
+            
+            <div class="answers-container" id="answers-container">
+                <!-- Варіанти відповідей генеруються JS -->
+            </div>
+        </div>
+        
+        <div class="test-navigation">
+            <button class="nav-btn" id="prev-question" disabled>
+                <i class="fas fa-arrow-left"></i> Попереднє
+            </button>
+            <button class="primary-btn" id="next-question">
+                Наступне <i class="fas fa-arrow-right"></i>
+            </button>
+            <button class="finish-btn" id="finish-test">
+                <i class="fas fa-flag-checkered"></i> Завершити
+            </button>
+        </div>
+    </section>
+</template>
+        <!-- Головний інтерфейс -->
+        <div id="app" class="hidden">
+            <!-- Шапка -->
+            <header class="main-header">
+                <div class="header-content">
+                    <div class="logo">
+                        <img src="cropped-favicon-removebg-preview.png" alt="Логотип ВПУ29" class="logo-image">
+                        <span class="logo-text">ВПУ29 <span>Тренажер</span></span>
+                    </div>
+                    <nav class="main-nav">
+                        <button id="theme-toggle" class="nav-btn">
+                            <i class="fas fa-moon"></i>
+                        </button>
+                        <button class="nav-btn" data-route="home">
+                            <i class="fas fa-arrow-left"></i>
+                        </button>
+                    </nav>
+                </div>
+            </header>
+
+            <!-- Основний контент -->
+            <main id="router-view"></main>
+
+            <!-- Підвал -->
+            <footer class="main-footer">
+                <p>© 2024 Професійний тренажер ВПУ29. Всі права захищені.</p>
+            </footer>
+        </div>
+    </div>
+
+    <!-- Шаблони сторінок -->
+    <template id="home-page">
+        <section class="home-section">
+            <div class="hero-card">
+                <h1>Професійна підготовка</h1>
+                <p class="subtitle">Тренажерний комплекс для підготовки до контрольної роботи</p>
+                
+                <div class="cta-section">
+                    <button class="primary-btn" data-route="subjects">
+                        <i class="fas fa-play"></i> Почати тренування
+                    </button>
+                    <button class="secondary-btn" data-route="progress">
+                        <i class="fas fa-chart-line"></i> Мій прогрес
+                    </button>
+                </div>
+                
+                <div class="features-grid">
+                    <div class="feature">
+                        <div class="feature-icon"><i class="fas fa-book-open"></i></div>
+                        <h3>Повний курс</h3>
+                        <p>Всі необхідні предмети в одному місці</p>
+                    </div>
+                    <div class="feature">
+                        <div class="feature-icon"><i class="fas fa-chart-line"></i></div>
+                        <h3>Прогрес</h3>
+                        <p>Відстежуйте свої успіхи</p>
+                    </div>
+                    <div class="feature">
+                        <div class="feature-icon"><i class="fas fa-tasks"></i></div>
+                        <h3>Тести</h3>
+                        <p>Перевірте свої знання</p>
+                    </div>
+                    <div class="feature">
+                        <div class="feature-icon"><i class="fas fa-award"></i></div>
+                        <h3>Досягнення</h3>
+                        <p>Заробляйте нагороди</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="image-section">
+                <img src="https://vpu29.lviv.ua/wp-content/uploads/2023/10/H.korpus2023.jpg" alt="Навчання">
+            </div>
+        </section>
+    </template>
+
+    <template id="subjects-page">
+        <section class="subjects-section">
+            <div class="section-header">
+                <h2>Доступні предмети</h2>
+                <p>Оберіть предмет для тренування</p>
+            </div>
+            
+            <div class="subjects-grid">
+                <!-- Генерується JS -->
+            </div>
+        </section>
+    </template>
+
+    <template id="progress-page">
+        <section class="progress-section">
+            <div class="section-header">
+                <h2>Мій прогрес</h2>
+                <p>Ваші результати за всіма предметами</p>
+            </div>
+            
+            <div class="progress-chart">
+                <!-- Генерується JS -->
+            </div>
+            
+            <div class="achievements">
+                <h3>Досягнення</h3>
+                <div class="achievements-grid">
+                    <!-- Генерується JS -->
+                </div>
+            </div>
+        </section>
+    </template>
+
+    <template id="training-page">
+        <section class="training-section">
+            <div class="training-header">
+                <h2 id="training-subject-name">Назва предмета</h2>
+                <div class="progress-indicator">
+                    <span>Прогрес: </span>
+                    <div class="progress-bar">
+                        <div class="progress-fill"></div>
+                    </div>
+                    <span class="progress-percent">0%</span>
+                </div>
+            </div>
+            
+            <div class="training-content">
+                <div class="theory-section">
+                    <h3>Теоретичний матеріал</h3>
+                    <div class="theory-content" id="theory-content">
+                        <!-- Генерується JS -->
+                    </div>
+                </div>
+                
+                <div class="practice-section">
+                    <h3>Практичні завдання</h3>
+                    <div class="questions-container" id="questions-container">
+                        <!-- Генерується JS -->
+                    </div>
+                    <button class="check-btn" id="check-answers">Перевірити відповіді</button>
+                </div>
+            </div>
+            
+            <div class="navigation-buttons">
+                <button class="nav-btn" data-route="subjects">
+                    <i class="fas fa-arrow-left"></i> До предметів
+                </button>
+                <button class="primary-btn" id="next-lesson">
+                    Наступний урок <i class="fas fa-arrow-right"></i>
+                </button>
+            </div>
+        </section>
+    </template>
+    <script src="tests/programming.js"></script>
+    <script src="app.js"></script>
+    
+
+</body>
+</html>
