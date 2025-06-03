@@ -6,8 +6,8 @@
     --accent: #f39c12;
     --bg: #f5f7fa;
     --card: #ffffff;
-    --text: #2c3e50;
-    --text-light: #7f8c8d;
+    --text: #3d6185;
+    --text-light: #4c5c5e;
     --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     
     /* Темна тема */
@@ -16,6 +16,17 @@
     --dark-text: #e6e6e6;
 }
 
+
+.feature:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+.feature {
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
 [data-theme="dark"] {
     --bg: var(--dark-bg);
     --card: var(--dark-card);
@@ -59,6 +70,65 @@ body {
 .cube-container {
     perspective: 1000px;
     margin-bottom: 3rem;
+}
+/* За замовчуванням — ховаємо навігацію для ПК */
+/* Приховуємо меню за замовчуванням */
+.nav-menu {
+  display: none;
+}
+
+/* Контейнер для навігації з бургером */
+.main-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  color: #000000;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Посилання меню (для розкритого меню) */
+.nav-menu.open {
+  display: flex;
+  flex-direction: column; /* мобільний стиль — колонки */
+  background-color: #000000;
+  position: absolute;
+  top: 60px; /* підбургером */
+  right: 20px;
+  border-radius: 6px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+  padding: 10px 0;
+  min-width: 150px;
+}
+
+/* Стилі для посилань меню */
+.nav-link {
+  color:  #495d7c;
+  padding: 10px 20px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+/* Підсвічування при наведенні */
+.nav-link:hover {
+  background-color: #6392f0;
+  color: #fff;
+}
+
+
+/* Для ПК (наприклад, ширина 768px і більше) */
+@media (min-width: 768px) {
+  /* Показуємо навігаційне меню */
+  .nav-menu {
+    display: flex;
+    gap: 20px;
+  }
+  
+  /* Ховаємо бургер меню */
+  .main-nav {
+    display: none;
+  }
 }
 
 .cube {
@@ -541,4 +611,331 @@ body {
 .answer-item.incorrect.selected {
     background-color: #ff4757;
     border: 2px solid #ff4757;
+}
+.school-section {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.school-info {
+  background: white;
+  border-radius: 8px;
+  padding: 2rem;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.specialty-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+.specialty-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1em 0;
+}
+
+.specialty-table th,
+.specialty-table td {
+  border: 1px solid #ccc;
+  padding: 0.6em;
+  text-align: left;
+}
+
+.specialty-table thead {
+  background-color: #f0f0f0;
+  font-weight: bold;
+}
+
+.specialty-card {
+  background: #f8f9fa;
+  padding: 1.5rem;
+  border-radius: 8px;
+  border-left: 4px solid #4e73df;
+}
+
+.school-details {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin: 2rem 0;
+}
+
+.school-contacts ul {
+  list-style: none;
+  padding: 0;
+}
+
+.school-contacts li {
+  margin-bottom: 0.8rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.school-main-image {
+  width: 100%;
+  border-radius: 8px;
+  margin-top: 2rem;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+@media (max-width: 768px) {
+  .school-details {
+    grid-template-columns: 1fr;
+  }
+}
+
+.cool-footer {
+  background-color: #1f2937; /* темно-сірий фон */
+  color: #d1d5db; /* світло-сірий текст */
+  padding: 40px 20px 20px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  justify-content: space-between;
+}
+
+.footer-section {
+  flex: 1 1 250px;
+  min-width: 250px;
+}
+
+.footer-section h3,
+.footer-section h4 {
+  margin-bottom: 20px;
+  color: #f9fafb;
+  font-weight: 700;
+}
+
+.footer-section p,
+.footer-section ul,
+.footer-section a {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #d1d5db;
+  text-decoration: none;
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-section ul li {
+  margin-bottom: 12px;
+}
+
+.footer-section ul li a:hover {
+  color: #3b82f6; /* яскраво-синій */
+  text-decoration: underline;
+}
+
+.social-links a {
+  display: inline-block;
+  margin-right: 15px;
+  font-size: 18px;
+  color: #d1d5db;
+  transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+  color: #3b82f6;
+}
+
+.footer-section.contacts p i {
+  margin-right: 10px;
+  color: #3b82f6;
+}
+
+.footer-bottom {
+  border-top: 1px solid #374151;
+  margin-top: 30px;
+  padding-top: 15px;
+  text-align: center;
+  font-size: 13px;
+  color: #6b7280;
+}
+
+/* Адаптивність */
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .footer-section {
+    min-width: 100%;
+  }
+}
+/* Оновлені стилі для бургер-меню */
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--text-color);
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0.5rem;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 998;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.mobile-nav {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 280px; /* Фіксована ширина */
+    height: 100%;
+    background-color: white; /* Колір фону як у основному інтерфейсі */
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 999;
+    transition: left 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid var(--border-color);
+}
+
+.mobile-nav.active {
+    left: 0;
+}
+
+.mobile-nav-header {
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--border-color);
+    background-color: var(--primary-color); /* Колір шапки меню */
+    color: white;
+}
+
+.mobile-nav-header .logo-text {
+    color: white;
+}
+
+.mobile-nav-links {
+    padding: 1rem;
+    flex-grow: 1;
+    overflow-y: auto;
+    background-color: var(--bg-color); /* Основний колір фону */
+}
+
+.mobile-nav-link {
+    display: flex;
+    align-items: center;
+    padding: 0.75rem 0;
+    color: var(--text-color);
+    text-decoration: none;
+    border-bottom: 1px solid var(--border-color);
+    transition: all 0.2s;
+}
+
+.mobile-nav-link i {
+    margin-right: 0.75rem;
+    width: 1.5rem;
+    text-align: center;
+}
+
+.mobile-nav-link:hover {
+    color: var(--primary-color);
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+#mobile-theme-toggle {
+    width: 100%;
+    text-align: left;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+    }
+    
+    .main-nav .nav-btn:not(.menu-toggle) {
+        display: none;
+    }
+}
+.test-navigation {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.test-navigation button {
+  flex: 1 1 auto;
+  min-width: 100px;
+  padding: 0.6rem 1rem;
+  font-size: 1rem;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  transition: background-color 0.3s;
+}
+
+.test-navigation .nav-btn {
+  background-color: #6c757d;
+  color: #fff;
+}
+
+.test-navigation .nav-btn:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.test-navigation .primary-btn {
+  background-color: #007bff;
+  color: #fff;
+}
+
+.test-navigation .finish-btn {
+  background-color: #28a745;
+  color: #fff;
+}
+
+/* Медіа-запит для мобільних */
+@media (max-width: 600px) {
+  .test-navigation {
+    flex-direction: column;
+  }
+
+  .test-navigation button {
+    width: 100%;
+    justify-content: center;
+    font-size: 1.1rem;
+  }
 }
