@@ -3,8 +3,8 @@ class ProfessionalTrainer {
         this.subjects = [
             { id: 1, name: "Основи програмування", icon: "fa-laptop-code", description: "Введення в програмування та базові концепції", testFile: "programming.js" },
             { id: 2, name: "Алгоритми та структури даних", icon: "fa-diagram-project", description: "Структури даних та алгоритми їх обробки", testFile: "algorithms.js" },
-            { id: 3, name: "Веб розробка", icon: "fa-globe", description: "Створення сучасних веб-додатків", testFile: "web.js" },
-            { id: 4, name: "Основи баз даних", icon: "fa-database", description: "Проектування та робота з базами даних", testFile: "databases.js" },
+            { id: 3, name: "Розробка веб-застосунків", icon: "fa-globe", description: "Перевір свої знання з веб-розробки", testFile: "web.js" },
+            { id: 4, name: "Бази даних для початківців", icon: "fa-database", description: "Проектування та робота з базами даних", testFile: "databases.js" },
            
         ];
 
@@ -26,13 +26,15 @@ class ProfessionalTrainer {
     }
 
     loadTemplates() {
-        this.pages = {
-            home: document.getElementById('home-page').content,
-            subjects: document.getElementById('subjects-page').content,
-            progress: document.getElementById('progress-page').content,
-            test: document.getElementById('test-page').content
-        };
-    }
+    this.pages = {
+        home: document.getElementById('home-page')?.content,
+        subjects: document.getElementById('subjects-page')?.content,
+        progress: document.getElementById('progress-page')?.content,
+        training: document.getElementById('training-page')?.content,
+        test: document.getElementById('test-page')?.content,
+        school: document.getElementById('school-page')?.content
+    };
+}
 
     renderSubjectCards() {
         const grid = document.querySelector('.subjects-grid');
@@ -121,8 +123,11 @@ class ProfessionalTrainer {
             };
 
             // Додаємо сторінку тесту до DOM
-            const testTemplate = document.getElementById('test-page').content;
-            document.getElementById('router-view').appendChild(document.importNode(testTemplate, true));
+           const testTemplate = document.getElementById('test-page').content;
+const routerView = document.getElementById('router-view');
+routerView.innerHTML = ''; // очищаємо попередній вміст
+routerView.appendChild(document.importNode(testTemplate, true));
+
             
             this.startTimer();
             this.renderQuestion();
@@ -341,6 +346,78 @@ class ProfessionalTrainer {
         });
     }
 }
+document.addEventListener('DOMContentLoaded', function() {
+    // Внутрішня навігація
+    document.querySelectorAll('[data-route]').forEach(element => {
+        element.addEventListener('click', function() {
+            const route = this.getAttribute('data-route');
+            if (route) navigateTo(route); // якщо navigateTo існує
+        });
+    });
 
-// Ініціалізація тренажера
-window.professionalTrainer = new ProfessionalTrainer();
+    // Зовнішні посилання
+    document.querySelectorAll('[data-href]').forEach(element => {
+        element.addEventListener('click', function() {
+            const url = this.getAttribute('data-href');
+            if (url) window.open(url, '_blank');
+        });
+    });
+
+    // Курсор pointer
+    document.querySelectorAll('.feature').forEach(feature => {
+        feature.style.cursor = 'pointer';
+    });
+
+  // Бургер-меню
+const menuToggle = document.getElementById('menu-toggle');
+const closeMenu = document.getElementById('close-menu');
+const overlay = document.getElementById('overlay');
+const mobileNav = document.getElementById('mobile-nav');
+const body = document.body;
+
+menuToggle.addEventListener('click', function() {
+    mobileNav.classList.add('active');
+    overlay.classList.add('active');
+    body.classList.add('menu-open');
+});
+
+closeMenu.addEventListener('click', function() {
+    mobileNav.classList.remove('active');
+    overlay.classList.remove('active');
+    body.classList.remove('menu-open');
+});
+
+overlay.addEventListener('click', function() {
+    mobileNav.classList.remove('active');
+    this.classList.remove('active');
+    body.classList.remove('menu-open');
+});
+
+// Закриваємо меню при кліку на посилання
+document.querySelectorAll('.mobile-nav-link').forEach(link => {
+  link.addEventListener('click', () => {
+    // Закрити меню
+    mobileNav.classList.remove('active');
+    overlay.classList.remove('active');
+    document.body.classList.remove('menu-open');
+
+    // Прокрутити сторінку вгору
+    window.scrollTo(0, 0);
+  });
+});
+
+
+// Синхронізація теми між основним і мобільним меню
+const themeToggle = document.getElementById('theme-toggle');
+const mobileThemeToggle = document.getElementById('mobile-theme-toggle');
+
+if (mobileThemeToggle) {
+    mobileThemeToggle.addEventListener('click', function() {
+        themeToggle.click(); // Імітуємо клік на основному перемикачі теми
+    });
+}
+
+
+ window.professionalTrainer = new ProfessionalTrainer();
+});
+
