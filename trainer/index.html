@@ -63,30 +63,103 @@
         <!-- Головний інтерфейс -->
         <div id="app" class="hidden">
             <!-- Шапка -->
-            <header class="main-header">
-                <div class="header-content">
-                    <div class="logo">
-                        <img src="cropped-favicon-removebg-preview.png" alt="Логотип ВПУ29" class="logo-image">
-                        <span class="logo-text">ВПУ29 <span>Тренажер</span></span>
-                    </div>
-                    <nav class="main-nav">
-                        <button id="theme-toggle" class="nav-btn">
-                            <i class="fas fa-moon"></i>
-                        </button>
-                        <button class="nav-btn" data-route="home">
-                            <i class="fas fa-arrow-left"></i>
-                        </button>
-                    </nav>
-                </div>
-            </header>
+        <header class="main-header">
+  <div class="header-content">
+    <div class="logo">
+      <img src="cropped-favicon-removebg-preview.png" alt="Логотип ВПУ29" class="logo-image">
+      <span class="logo-text">ВПУ29 <span>Тренажер</span></span>
+    </div>
+
+<nav class="nav-menu">
+      <a href="#" class="nav-link" data-route="home"><i class="fas fa-home"></i> Головна</a>
+      <a href="#" class="nav-link" data-route="subjects"><i class="fas fa-book"></i> Предмети</a>
+      <a href="#" class="nav-link" data-route="progress"><i class="fas fa-chart-line"></i> Прогрес</a>
+      <a href="#" class="nav-link" data-route="school"><i class="fas fa-school"></i> Про ВПУ29</a>
+    </nav>
+
+
+    <nav class="main-nav">
+      <button class="nav-btn" data-route="home">
+        <i class="fas fa-arrow-left"></i>
+      </button>
+      <button class="menu-toggle" id="menu-toggle">
+        <i class="fas fa-bars"></i>
+      </button>
+    </nav>
+  </div>
+</header>
+
+
+<!-- Мобільне меню -->
+<div class="overlay" id="overlay"></div>
+<nav class="mobile-nav" id="mobile-nav">
+    <div class="mobile-nav-header">
+        <div class="logo">
+            
+            <img src="cropped-favicon-removebg-preview.png" alt="Логотип ВПУ29" class="logo-image">
+            <span class="logo-text">ВПУ29 <span>Тренажер</span></span>
+        </div>
+        <button class="menu-toggle" id="close-menu">
+            <i class="fas fa-times"></i>
+        </button>
+    </div>
+    
+    <div class="mobile-nav-links">
+        <a href="#" class="mobile-nav-link" data-route="home">
+            <i class="fas fa-home"></i> Головна
+        </a>
+        <a href="#" class="mobile-nav-link" data-route="subjects">
+            <i class="fas fa-book"></i> Предмети
+        </a>
+        <a href="#" class="mobile-nav-link" data-route="progress">
+            <i class="fas fa-chart-line"></i> Прогрес
+        </a>
+        <a href="#" class="mobile-nav-link" data-route="school">
+            <i class="fas fa-school"></i> Про ВПУ29
+        </a>
+    </div>
+</nav>
 
             <!-- Основний контент -->
             <main id="router-view"></main>
 
-            <!-- Підвал -->
-            <footer class="main-footer">
-                <p>© 2024 Професійний тренажер ВПУ29. Всі права захищені.</p>
-            </footer>
+            <footer class="main-footer cool-footer">
+  <div class="footer-container">
+    <div class="footer-section about">
+      <h3>ВПУ №29 Львів</h3>
+      <p>Професійне училище з сучасним підходом до освіти, підготовки та розвитку майбутніх фахівців.</p>
+      <div class="social-links">
+        <a href="https://www.facebook.com/lvivvpu29/?locale=uk_UA" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://www.instagram.com/vpu29lviv/" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.youtube.com/@vpu29lviv" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+        <a href="https://www.tiktok.com/@vpu29lviv" target="_blank" aria-label="YouTube"><i class="fab fa-tiktok"></i></a>
+      </div>
+    </div>
+
+    <div class="footer-section links">
+      <h4>Корисні посилання</h4>
+      <ul>
+        <li><a href="#" data-route="home">Головна</a></li>
+        <li><a href="#" data-route="subjects">Предмети</a></li>
+        <li><a href="#" data-route="progress">Прогрес</a></li>
+        <li><a href="#" data-route="school">Про ВПУ29</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-section contacts">
+      <h4>Контакти</h4>
+      <p><i class="fas fa-map-marker-alt"></i> вул. Тараса Шевченка, 116, Львів</p>
+      <p><i class="fas fa-phone"></i> (032) 123-45-67</p>
+      <p><i class="fas fa-envelope"></i> info@vpu29.lviv.ua</p>
+      <p><i class="fas fa-globe"></i> <a href="https://vpu29.lviv.ua" target="_blank">vpu29.lviv.ua</a></p>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>© 2025 ВПУ №29 Львів. Всі права захищені.</p>
+  </div>
+</footer>
+
         </div>
     </div>
 
@@ -95,38 +168,40 @@
         <section class="home-section">
             <div class="hero-card">
                 <h1>Професійна підготовка</h1>
-                <p class="subtitle">Тренажерний комплекс для підготовки до контрольної роботи</p>
+              <p class="subtitle">
+  Інтерактивний тренажер для підготовки до контрольних робіт: проходьте тести, перевіряйте знання та готуйтесь ефективно.
+</p>
+
+
                 
                 <div class="cta-section">
                     <button class="primary-btn" data-route="subjects">
                         <i class="fas fa-play"></i> Почати тренування
                     </button>
-                    <button class="secondary-btn" data-route="progress">
-                        <i class="fas fa-chart-line"></i> Мій прогрес
-                    </button>
                 </div>
                 
-                <div class="features-grid">
-                    <div class="feature">
-                        <div class="feature-icon"><i class="fas fa-book-open"></i></div>
-                        <h3>Повний курс</h3>
-                        <p>Всі необхідні предмети в одному місці</p>
-                    </div>
-                    <div class="feature">
-                        <div class="feature-icon"><i class="fas fa-chart-line"></i></div>
-                        <h3>Прогрес</h3>
-                        <p>Відстежуйте свої успіхи</p>
-                    </div>
-                    <div class="feature">
-                        <div class="feature-icon"><i class="fas fa-tasks"></i></div>
-                        <h3>Тести</h3>
-                        <p>Перевірте свої знання</p>
-                    </div>
-                    <div class="feature">
-                        <div class="feature-icon"><i class="fas fa-award"></i></div>
-                        <h3>Досягнення</h3>
-                        <p>Заробляйте нагороди</p>
-                    </div>
+               <div class="features-grid">
+    <div class="feature" data-href="https://vpu29.lviv.ua/vo-tech-courses/">
+        <div class="feature-icon"><i class="fas fa-book-open"></i></div>
+        <h3>Повний курс</h3>
+        <p>Всі необхідні предмети в одному місці</p>
+    </div>
+                    <div class="feature" data-route="progress">
+        <div class="feature-icon"><i class="fas fa-chart-line"></i></div>
+        <h3>Прогрес</h3>
+        <p>Відстежуйте свої успіхи</p>
+    </div>
+    <div class="feature" data-route="subjects">
+        <div class="feature-icon"><i class="fas fa-tasks"></i></div>
+        <h3>Тести</h3>
+        <p>Перевірте свої знання</p>
+    </div>
+   <div class="feature" data-route="school">
+    <div class="feature-icon"><i class="fas fa-school"></i></div>
+    <h3>Навчальний заклад</h3>
+    <p>Детальніше про ВПУ №29</p>
+</div>
+
                 </div>
             </div>
             
@@ -150,24 +225,44 @@
     </template>
 
     <template id="progress-page">
-        <section class="progress-section">
-            <div class="section-header">
-                <h2>Мій прогрес</h2>
-                <p>Ваші результати за всіма предметами</p>
-            </div>
-            
-            <div class="progress-chart">
-                <!-- Генерується JS -->
-            </div>
-            
-            <div class="achievements">
-                <h3>Досягнення</h3>
-                <div class="achievements-grid">
-                    <!-- Генерується JS -->
-                </div>
-            </div>
-        </section>
-    </template>
+  <section class="progress-section">
+    <div class="section-header">
+      <h2>Мій прогрес</h2>
+      <p>Ваші результати за всіма предметами. Тут ви можете побачити, скільки вже опановано, які теми ще варто повторити, та які досягнення ви вже здобули.</p>
+    </div>
+
+    <div class="progress-chart">
+      <!-- Сюди JavaScript динамічно вставляє діаграми прогресу -->
+    </div>
+
+    <div class="progress-info">
+      <h3>Розшифрування результатів</h3>
+      <p>Кожна діаграма відображає ваш прогрес за окремим предметом. Використовуйте ці дані, щоб визначити, де варто покращити знання:</p>
+      <ul>
+        <li><strong>0–50%</strong> — Початковий рівень. Рекомендується повторити теми.</li>
+        <li><strong>51–80%</strong> — Середній рівень. Ви вже маєте гарні знання!</li>
+        <li><strong>81–100%</strong> — Високий рівень. Ви готові до контрольної!</li>
+      </ul>
+    </div>
+
+    <div class="tips-section">
+      <h3>Корисні поради</h3>
+      <p>Покращити результати легко, якщо дотримуватись цих порад:</p>
+      <ol>
+        <li>Приділяйте тестуванню хоча б 15 хвилин на день.</li>
+        <li>Повторюйте питання, на які відповіли неправильно.</li>
+        <li>Після кожного тесту переглядайте правильні відповіді.</li>
+      </ol>
+    </div>
+
+    <div class="motivation-quote">
+      <blockquote>
+        “Не бійся повільного поступу, бійся зупинки.”<br>
+        <cite>— Китайське прислів’я</cite>
+      </blockquote>
+    </div>
+  </section>
+</template>
 
     <template id="training-page">
         <section class="training-section">
@@ -209,9 +304,150 @@
             </div>
         </section>
     </template>
+   <template id="school-page">
+  <section class="school-section">
+    <div class="section-header">
+      <h2>Про навчальний заклад</h2>
+      <p>Вище професійне училище №29 м. Львова</p>
+    </div>
+
+    <div class="school-info">
+      <div class="school-description">
+        <p>ВПУ №29 м. Львова — це провідний навчальний заклад професійно-технічної освіти у Львівському регіоні, який готує молодь за спеціальностями, актуальними на сучасному ринку праці. Заклад був заснований у середині ХХ століття і має багаторічний досвід підготовки кваліфікованих робітників і спеціалістів.</p>
+        
+        <h3>Історія та місія</h3>
+        <p>З моменту свого створення ВПУ №29 пройшло великий шлях розвитку: від класичного училища робітничих професій до сучасного центру професійної освіти, що відповідає вимогам часу. Головна місія училища — надати молоді якісну професійну освіту, що сприяє успішному працевлаштуванню та кар'єрному зростанню.</p>
+      </div>
+      <div class="specialties">
+  <h3>Вище професійне училище №29 м. Львова</h3>
+  <p>запрошує на навчання за такими спеціальностями</p>
+
+  <h4>На базі 9 класів</h4>
+  <table class="specialty-table">
+    <thead>
+      <tr>
+        <th>№ П.П.</th>
+        <th>Назва професій</th>
+        <th>Тривалість</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td>Слюсар з ремонту колісних транспортних засобів, електрозварник ручного зварювання, водій автотранспортних засобів (категорії «В», «С»)</td>
+        <td>2 роки 10 місяців</td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>Оператор з обробки інформації та програмного забезпечення</td>
+        <td>2 роки 10 місяців</td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>Кухар, офіціант</td>
+        <td>2 роки 10 місяців</td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td>Кухар, кондитер</td>
+        <td>2 роки 10 місяців</td>
+      </tr>
+      <tr>
+        <td>5</td>
+        <td>Перукар (перукар-модельєр), манікюрник</td>
+        <td>2 роки 10 місяців</td>
+      </tr>
+      <tr>
+        <td>6</td>
+        <td>Перукар (перукар-модельєр), візажист</td>
+        <td>2 роки 10 місяців</td>
+      </tr>
+      <tr>
+        <td>7</td>
+        <td>Слюсар з ремонту колісних транспортних засобів, майстер з діагностики та налагодження електронного устаткування автомобільних засобів</td>
+        <td>2 роки 10 місяців</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h4>На базі 11 класів</h4>
+  <table class="specialty-table">
+    <thead>
+      <tr>
+        <th>№ П.П.</th>
+        <th>Назва професій</th>
+        <th>Тривалість</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td>Кухар, бармен</td>
+        <td>1 рік 10 місяців</td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>Слюсар з ремонту колісних транспортних засобів</td>
+        <td>10 місяців</td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>Перукар (перукар-модельєр)</td>
+        <td>10 місяців</td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td>Кондитер</td>
+        <td>10 місяців</td>
+      </tr>
+      <tr>
+        <td>5</td>
+        <td>Майстер з діагностики та налагодження електронного устаткування автомобільних засобів</td>
+        <td>10 місяців</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+      <div class="school-details">
+        <div class="details-column">
+          <h3><i class="fas fa-cogs"></i> Матеріально-технічна база</h3>
+          <p>Сучасні кабінети, комп'ютерні класи, лабораторії та майстерні з новітнім обладнанням.</p>
+          
+          <h3><i class="fas fa-chalkboard-teacher"></i> Викладацький склад</h3>
+          <p>Висококваліфіковані викладачі з практичним досвідом, що використовують сучасні методики.</p>
+        </div>
+        
+        <div class="details-column">
+          <h3><i class="fas fa-briefcase"></i> Працевлаштування</h3>
+          <p>Співпраця з підприємствами Львова, виробнича практика, високі шанси на працевлаштування.</p>
+          
+          <h3><i class="fas fa-users"></i> Позанавчальна діяльність</h3>
+          <p>Конкурси, олімпіади, фестивалі, спортивні змагання, волонтерські проекти.</p>
+        </div>
+      </div>
+      
+      
+      <img src="https://itcluster.lviv.ua/wp-content/uploads/2024/06/vo-tech_school_novyna_-1.png" alt="Головний корпус ВПУ №29" class="school-main-image">
+    </div>
+  </section>
+</template>
+
     <script src="tests/programming.js"></script>
     <script src="app.js"></script>
     
 
 </body>
+<script>
+  // Цей скрипт прив'язується до динамічно вставлених елементів після навігації
+  document.addEventListener('click', (e) => {
+    const feature = e.target.closest('.feature');
+    if (feature && feature.hasAttribute('data-href')) {
+      const link = feature.getAttribute('data-href');
+      if (link) window.open(link, '_blank');
+    }
+  });
+</script>
+
+
 </html>
