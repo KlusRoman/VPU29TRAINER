@@ -417,7 +417,19 @@ if (mobileThemeToggle) {
     });
 }
 
+// Отримуємо елемент логотипа
+const logo = document.querySelector('.logo');
 
+// Додаємо обробник кліку
+logo.addEventListener('click', function() {
+  // Викликаємо ту саму функцію, що і для навігаційних посилань
+  const route = this.getAttribute('data-route');
+  // Тут має бути ваш код для зміни сторінки
+  // Наприклад:
+  navigateTo(route); // Якщо у вас є така функція
+  // Або:
+  window.location.href = '/'; // Простий перехід на головну
+});
  window.professionalTrainer = new ProfessionalTrainer();
 });
 
